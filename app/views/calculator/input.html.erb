@@ -1,23 +1,14 @@
-<h1>Калькулятор</h1>
+<h1>Лабораторная работа №9</h1>
 
-<h3>Введите значения и выберите математическую операцию</h3>
+<h3>Введите число n</h3>
 
+<div class="div-form">
 <%= form_with url: result_path do |form| %>
-  <%= form.label('Значение x:') %>
-  <%= form.number_field(:x) %><br/>
-  <%= form.label('Значение y:') %>
-  <%= form.number_field(:y) %><br/>
-
-  <table>
-    <% ['+', '-', '*', '/'].each do |operation| %>
-      <tr>
-        <td><%= form.label(operation) %></td>
-        <td><%= form.radio_button(:operation, operation, id: "operation_#{operation}") %></td>
-      </tr>
-    <% end %>
-  </table>
-
-  <%= form.submit('Посчитать', id: 'calculate-btn') %>
+  <%= form.label('Значение n:') %>
+  <%= form.number_field(:numbers) %><br/>
+  <div class="btn">
+  <%= form.submit('SUBMIT', id: 'calculate-btn') %></div>
 <% end %>
+</div>
 
 <div id='result-container'></div>

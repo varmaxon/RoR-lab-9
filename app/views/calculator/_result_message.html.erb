@@ -1,11 +1,18 @@
-<% if @calculator.valid? %>
-  <h2>Результат</h2>
-  <p>Полученный ответ: <%= @calculator.result %></p>
-<% else %>
-  <h2>Ошибки ввода:</h2>
-  <ul>
-    <% @calculator.errors.each do |error| %>
-      <li><%= error.full_message %></li>
+<div class="res">
+  <h2>РЕЗУЛЬТАТ</h2>
+  <div class="put" id="input_data">Входные данные: n = <%= @input_data %></div>
+  <div class="put" id="result">Выходные данные:</div>
+</div>  
+
+<div class="table_pos">
+<table>
+  <tbody>
+    <% @result.each do |i| %>
+    <tr>
+      <td><%= i[0] %></td>
+      <td><%= i[1] %></td>
+    </tr>
     <% end %>
-  </ul>
-<% end %>
+  </tbody>
+</table>
+</div>

@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ h1, h3 {
+  text-align: center;
+  padding-bottom: 30px;
+ }
+ .div-form {
+  text-align: center;
+ }
+ .btn {
+  padding-top: 30px;
+ }
+ table {
+  width: 300px;
+  font-size: 30px;
+  text-align: center;
+  border-collapse: collapse;
+}
+td {
+  border: 3px solid purple;
+}
+h1 {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.res {
+  text-align: center;
+}
+.table_pos {
+  padding-top: 30px;
+  padding-left: 42%;
+}

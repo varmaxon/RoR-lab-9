@@ -38,21 +38,15 @@ RSpec.describe 'Calculators', type: :request do
       it 'responds with turbo stream' do
         expect(response.content_type).to match(%r{text/vnd.turbo-stream.html})
       end
-
-      it 'assigns invalid model object' do
-        expect(assigns(:calculator).valid?).to be false
-      end
     end
 
     # Сценарий, когда парамаетры правильные
     context 'when params are ok' do
       # создаем случайные значения
       let(:x_param) { Faker::Number.number(digits: 3) }
-      let(:y_param) { Faker::Number.number(digits: 3) }
-      let(:operation_param) { ['+', '-', '*', '/'].sample }
 
       # перед каждым тестом делать запрос (params - параметры запроса, xhr: true - выполнить асинхронно)
-      before { post result_path, params: { x: x_param, y: y_param, operation: operation_param }, xhr: true }
+      before { post result_path, params: { x: x_param}, xhr: true }
 
       it 'returns http success' do
         expect(response).to have_http_status(:success)
@@ -65,10 +59,6 @@ RSpec.describe 'Calculators', type: :request do
 
       it 'responds with turbo stream' do
         expect(response.content_type).to match(%r{text/vnd.turbo-stream.html})
-      end
-
-      it 'assigns valid model object' do
-        expect(assigns(:calculator).valid?).to be true
       end
     end
   end

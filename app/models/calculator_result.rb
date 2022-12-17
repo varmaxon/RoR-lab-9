@@ -5,16 +5,10 @@ class CalculatorResult
   include ActiveModel::Model # примешиваем методы для модели ActiveModel
   include ActiveModel::Validations # примешиваем методы для валидаций из ActiveModel
 
-  attr_accessor :x, :y, :operation # создаем аттрибуты модели руками, так как здесь нет связи с таблицей в БД
+  attr_accessor :numbers # создаем аттрибуты модели руками, так как здесь нет связи с таблицей в БД
 
-  validates :x, :y, :operation, presence: { message: 'не может быть пустым' } # проверка на обязательное наличие полей
-  validates :x, :y, format: { with: /\d/, message: 'должно быть числом' } # проврка x и y на числа
-
-  # проверка operation на вхождение в заранее заданный список значений (-,+,*,/)
-  validates :operation, inclusion: {
-    in: %w[* / + -],
-    message: 'не входит в список доступных операций'
-  }
+  validates :numbers, presence: { message: 'не может быть пустым' } # проверка на обязательное наличие полей
+  validates :numbers, format: { with: /\d/, message: 'должно быть числом' }
 
   # выполняем расчет сразу в модели, а не в контроллере
   def result
